@@ -1,14 +1,46 @@
-import Counter from './Counter'
 import Nav from '../pages/Nav'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import ItemList from './ItemList'
+import MuscleGroup from './MuscleGroup'
 
-const AppContainer = () => {
+
+const AppContainer = ({itemLength}) => {
+
+
+  const hedef = "abs"
+
+   const [data, setData] = useState([])
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://exercisedb.p.rapidapi.com/exercises/target/biceps',
+      headers: {
+        'X-RapidAPI-Key': '8f30d2cbbfmsh74cc8e8bdf318d8p152c38jsn7600942b5834',
+        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+      },
+    }
+
+    axios
+      .request(options)
+      .then(function (response) {
+        setData(response.data)
+      
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
+  }, [])
+
+
+
   return (
-    <div className="mx-auto items-center justify-center pt-24 sm:h-full sm:w-full md:h-full md:w-full lg:mx-12 xl:mx-24">
+    <div className="mx-auto items-center justify-center">
       <Nav />
-      <div className="gradient title m-4 p-12">React Starter</div>
-      <div className="gradient m-4 p-12">
-        <Counter />
-      </div>
+
+      <MuscleGroup />
+      <ItemList data={data} itemLength={itemLength} />
     </div>
   )
 }
