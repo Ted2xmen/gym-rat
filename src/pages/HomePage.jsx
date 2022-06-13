@@ -3,7 +3,7 @@ import AppContainer from '../components/AppContainer'
 
 
 const HomePage = () => {
-const itemLength = 10
+const itemLength = 15
 
   return (
     <div>

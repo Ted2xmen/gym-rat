@@ -24,11 +24,14 @@ const muscleGroupList = [
 
 const MuscleGroup = () => {
   return (
-    <select className='bg-black p-3 outline-orange-400 uppercase'>
+    <div className="flex mx-auto justify-end px-8 justify-items-end gap-5">
+      <h1 className="text-2xl">Kas Grupları 💪</h1>
+      <select className=" rounded-lg bg-slate-200 text-black p-2">
         {muscleGroupList.map((item) => (
-         <option>{item} </option>
+          <option className="normal-case">{item} </option>
         ))}
-    </select>
+      </select>
+    </div>
   )
 }
 

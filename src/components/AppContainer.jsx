@@ -3,14 +3,10 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import MuscleGroup from './MuscleGroup'
+import FirstHero from './FirstHero'
 
-
-const AppContainer = ({itemLength}) => {
-
-
-  const hedef = "abs"
-
-   const [data, setData] = useState([])
+const AppContainer = ({ itemLength }) => {
+  const [data, setData] = useState([])
 
   useEffect(() => {
     const options = {
@@ -26,20 +22,18 @@ const AppContainer = ({itemLength}) => {
       .request(options)
       .then(function (response) {
         setData(response.data)
-      
       })
       .catch(function (error) {
         console.error(error)
       })
   }, [])
 
-
-
   return (
     <div className="mx-auto items-center justify-center">
+      <FirstHero />
       <Nav />
-
       <MuscleGroup />
+      
       <ItemList data={data} itemLength={itemLength} />
     </div>
   )
