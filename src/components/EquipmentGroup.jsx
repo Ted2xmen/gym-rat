@@ -32,9 +32,7 @@ const equipmantGroupList = [
   'wheel roller',
 ]
 
-
 const EquipmentGroup = ({ setEquipmant }) => {
-
   const handleEquipmant = (e) => {
     setEquipmant(e.target.value)
   }
@@ -44,7 +42,9 @@ const EquipmentGroup = ({ setEquipmant }) => {
       <h1 className="flex items-center gap-2">
         <CgGym className="text-5xl" /> Ekipman
       </h1>
-      <select onChange={handleEquipmant} className="rounded-lg bg-slate-200 p-1 text-black">
+      <select
+        onChange={handleEquipmant}
+        className="rounded-lg bg-slate-200 p-1 text-black">
         {equipmantGroupList.map((item) => (
           <option className="normal-case">{item} </option>
         ))}
