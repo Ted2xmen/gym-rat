@@ -1,4 +1,6 @@
 import React from 'react'
+import { GiMuscleUp } from 'react-icons/gi'
+
 
 const muscleGroupList = [
   'abductors',
@@ -22,13 +24,26 @@ const muscleGroupList = [
   'upper back',
 ]
 
-const MuscleGroup = () => {
+
+
+const MuscleGroup = ({setMuscle}) => {
+
+
+  const handleMuscle = (e) => {
+    setMuscle(e.target.value)
+  }
+
+  
   return (
-    <div className="flex mx-auto justify-end px-8 justify-items-end gap-5">
-      <h1 className="text-2xl">Kas Grupları 💪</h1>
-      <select className=" rounded-lg bg-slate-200 text-black p-2">
+    <div className="mx-auto flex  gap-5 px-4">
+      <h1 className="flex items-center gap-2">
+        <GiMuscleUp className="text-5xl" /> Kas
+      </h1>
+      <select
+        onChange={handleMuscle}
+        className=" rounded-lg bg-slate-200 p-1 text-black">
         {muscleGroupList.map((item) => (
-          <option className="normal-case">{item} </option>
+          <option className="normal-case">{item}</option>
         ))}
       </select>
     </div>

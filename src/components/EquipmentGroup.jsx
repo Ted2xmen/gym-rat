@@ -1,4 +1,5 @@
 import React from 'react'
+import { CgGym } from 'react-icons/cg'
 
 const equipmantGroupList = [
   'assisted',
@@ -31,11 +32,19 @@ const equipmantGroupList = [
   'wheel roller',
 ]
 
-const EquipmentGroup = () => {
+
+const EquipmentGroup = ({ setEquipmant }) => {
+
+  const handleEquipmant = (e) => {
+    setEquipmant(e.target.value)
+  }
+
   return (
-    <div className="mx-auto flex justify-end justify-items-end gap-5 px-8">
-      <h1 className="text-2xl">Kas Grupları 💪</h1>
-      <select className=" rounded-lg bg-slate-200 p-2 text-black">
+    <div className="mx-auto flex  gap-5 px-4">
+      <h1 className="flex items-center gap-2">
+        <CgGym className="text-5xl" /> Ekipman
+      </h1>
+      <select onChange={handleEquipmant} className="rounded-lg bg-slate-200 p-1 text-black">
         {equipmantGroupList.map((item) => (
           <option className="normal-case">{item} </option>
         ))}
