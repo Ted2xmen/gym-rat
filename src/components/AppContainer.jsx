@@ -12,12 +12,14 @@ const AppContainer = ({ itemLength }) => {
   const [body, setBody] = useState('')
   const [equipment, setEquipmant] = useState('')
 
+  const exerciseAPI = process.env.REACT_APP_RAPIDAPI
+
   useEffect(() => {
     const options = {
       method: 'GET',
       url: 'https://exercisedb.p.rapidapi.com/exercises',
       headers: {
-        'X-RapidAPI-Key': '8f30d2cbbfmsh74cc8e8bdf318d8p152c38jsn7600942b5834',
+        'X-RapidAPI-Key': exerciseAPI,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
       },
     }
@@ -29,15 +31,14 @@ const AppContainer = ({ itemLength }) => {
       .catch(function (error) {
         console.error(error)
       })
-  }, [])
+  }, [exerciseAPI])
 
   useEffect(() => {
     const options = {
       method: 'GET',
       url: `https://exercisedb.p.rapidapi.com/exercises/equipment/${equipment}`,
-      //  url: `https://exercisedb.p.rapidapi.com/exercises/equipment/barbell`,
       headers: {
-        'X-RapidAPI-Key': '8f30d2cbbfmsh74cc8e8bdf318d8p152c38jsn7600942b5834',
+        'X-RapidAPI-Key': exerciseAPI,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
       },
     }
@@ -49,7 +50,7 @@ const AppContainer = ({ itemLength }) => {
       .catch(function (error) {
         console.error(error)
       })
-  }, [equipment])
+  }, [equipment, exerciseAPI])
 
   useEffect(() => {
     const options = {
@@ -57,7 +58,7 @@ const AppContainer = ({ itemLength }) => {
       url: `https://exercisedb.p.rapidapi.com/exercises/target/${muscle}`,
       //  url: `https://exercisedb.p.rapidapi.com/exercises/equipment/barbell`,
       headers: {
-        'X-RapidAPI-Key': '8f30d2cbbfmsh74cc8e8bdf318d8p152c38jsn7600942b5834',
+        'X-RapidAPI-Key': exerciseAPI,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
       },
     }
@@ -69,7 +70,7 @@ const AppContainer = ({ itemLength }) => {
       .catch(function (error) {
         console.error(error)
       })
-  }, [muscle])
+  }, [muscle, exerciseAPI])
 
   useEffect(() => {
     const options = {
@@ -77,7 +78,7 @@ const AppContainer = ({ itemLength }) => {
       url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${body}`,
       //  url: `https://exercisedb.p.rapidapi.com/exercises/equipment/barbell`,
       headers: {
-        'X-RapidAPI-Key': '8f30d2cbbfmsh74cc8e8bdf318d8p152c38jsn7600942b5834',
+        'X-RapidAPI-Key': exerciseAPI,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
       },
     }
@@ -89,7 +90,7 @@ const AppContainer = ({ itemLength }) => {
       .catch(function (error) {
         console.error(error)
       })
-  }, [body])
+  }, [body, exerciseAPI])
 
   return (
     <div className="mx-auto items-center justify-center">

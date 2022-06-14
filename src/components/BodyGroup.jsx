@@ -28,7 +28,7 @@ const BodyGroup = ({ setBody }) => {
         onChange={handleBody}
         className="truncate rounded-lg bg-slate-200 p-1 uppercase text-black">
         {bodyGroupList.map((item) => (
-          <option className="normal-case">{item}</option>
+          <option key={item} className="normal-case">{item}</option>
         ))}
       </select>
     </div>

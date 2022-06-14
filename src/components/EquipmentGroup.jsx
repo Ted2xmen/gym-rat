@@ -46,7 +46,7 @@ const EquipmentGroup = ({ setEquipmant }) => {
         onChange={handleEquipmant}
         className="rounded-lg bg-slate-200 p-1 uppercase text-black truncate">
         {equipmantGroupList.map((item) => (
-          <option className="">{item}</option>
+          <option key={item} className="">{item}</option>
         ))}
       </select>
     </div>

@@ -37,7 +37,7 @@ const MuscleGroup = ({ setMuscle }) => {
         onChange={handleMuscle}
         className="truncate focus:outline-green-600 focus:ring-sky-400 rounded-lg bg-slate-200 p-1 uppercase text-black">
         {muscleGroupList.map((item) => (
-          <option className="normal-case">{item}</option>
+          <option key={item} className="normal-case">{item}</option>
         ))}
       </select>
     </div>
