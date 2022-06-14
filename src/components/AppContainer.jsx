@@ -101,7 +101,14 @@ const AppContainer = ({ itemLength }) => {
         setMuscle={setMuscle}
         setEquipmant={setEquipmant}
       />
-      <ItemList data={data} itemLength={itemLength} />
+
+      {data === !null ? (
+        <ItemList data={data} itemLength={itemLength} />
+      ) : (
+        <div className="grid h-48 place-items-center">
+          <h2>You have reached maximum quota for ExerciseDB API</h2>
+        </div>
+      )}
     </div>
   )
 }

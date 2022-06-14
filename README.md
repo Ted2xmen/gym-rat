@@ -1,14 +1,6 @@
-# React Starter 
+# GYM RAT
 
-React, Router, Redux Toolkit, and TailwindCSS Starter 
+## ExerciseDB
 
-- React 18
-- Redux Toolkit
-- React Router v6
-- Tailwind CSS v3
+- The ExerciseDB gives you access to over 1300 exercises with individual exercise data and animated demonstrations
 
-
-# Plugins
-
-- Sorting Tailwind CSS Classes Automatically with Prettier 
-> https://www.youtube.com/watch?v=_CntOc4hBcg
