@@ -38,15 +38,15 @@ const EquipmentGroup = ({ setEquipmant }) => {
   }
 
   return (
-    <div className="mx-auto flex  gap-5 px-4">
+    <div className="mx-auto flex w-96 justify-between gap-5 rounded-lg bg-slate-600 p-6 px-8 shadow-md">
       <h1 className="flex items-center gap-2">
         <CgGym className="text-5xl" /> Ekipman
       </h1>
       <select
         onChange={handleEquipmant}
-        className="rounded-lg bg-slate-200 p-1 text-black">
+        className="rounded-lg bg-slate-200 p-1 uppercase text-black truncate">
         {equipmantGroupList.map((item) => (
-          <option className="normal-case">{item} </option>
+          <option className="">{item}</option>
         ))}
       </select>
     </div>

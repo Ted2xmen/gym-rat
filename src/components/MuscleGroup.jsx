@@ -29,13 +29,13 @@ const MuscleGroup = ({ setMuscle }) => {
   }
 
   return (
-    <div className="mx-auto flex  gap-5 px-4">
+    <div className="mx-auto flex w-96 justify-between gap-5 rounded-lg bg-slate-500 p-6 px-8 shadow-md">
       <h1 className="flex items-center gap-2">
         <GiMuscleUp className="text-5xl" /> Kas
       </h1>
       <select
         onChange={handleMuscle}
-        className=" rounded-lg bg-slate-200 p-1 text-black">
+        className="truncate rounded-lg bg-slate-200 p-1 uppercase text-black">
         {muscleGroupList.map((item) => (
           <option className="normal-case">{item}</option>
         ))}
