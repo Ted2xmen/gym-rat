@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import FirstHero from './FirstHero'
 import SettingsMenu from './SettingsMenu'
-import SocialList from './SocialList'
 
 const AppContainer = ({ itemLength }) => {
   const [data, setData] = useState([])
@@ -92,18 +91,18 @@ const AppContainer = ({ itemLength }) => {
       })
   }, [body, exerciseAPI])
 
+  
   return (
     <div className="mx-auto items-center justify-center">
       <FirstHero />
       <Nav />
-      <SocialList />
       <SettingsMenu
         setBody={setBody}
         setMuscle={setMuscle}
         setEquipmant={setEquipmant}
       />
 
-      {data === !null ? (
+      {!data ? (
         <ItemList data={data} itemLength={itemLength} />
       ) : (
         <div className="grid h-48 place-items-center">

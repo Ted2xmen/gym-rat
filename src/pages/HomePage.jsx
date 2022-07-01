@@ -1,7 +1,7 @@
 import AppContainer from '../components/AppContainer'
 
 const HomePage = () => {
-const itemLength = 15  // page limit
+const itemLength = 15  // page item limit
 
   return (
     <div>
