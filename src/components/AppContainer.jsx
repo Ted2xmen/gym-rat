@@ -5,7 +5,7 @@ import ItemList from './ItemList'
 import FirstHero from './FirstHero'
 import SettingsMenu from './SettingsMenu'
 
-const AppContainer = ({ itemLength }) => {
+const AppContainer = () => {
   const [data, setData] = useState([])
   const [muscle, setMuscle] = useState('')
   const [body, setBody] = useState('')
@@ -25,12 +25,17 @@ const AppContainer = ({ itemLength }) => {
     axios
       .request(options)
       .then(function (response) {
-        setData(response.data)
+     
+        localStorage.setItem('data', JSON.stringify(response.data))
+
+        const localData = JSON.parse(localStorage.getItem('data'))
+        setData(localData)
+
       })
       .catch(function (error) {
         console.error(error)
       })
-  }, [exerciseAPI])
+  }, [])
 
   useEffect(() => {
     const options = {
@@ -91,7 +96,6 @@ const AppContainer = ({ itemLength }) => {
       })
   }, [body, exerciseAPI])
 
-  
   return (
     <div className="mx-auto items-center justify-center">
       <FirstHero />
@@ -102,8 +106,8 @@ const AppContainer = ({ itemLength }) => {
         setEquipmant={setEquipmant}
       />
 
-      {!data ? (
-        <ItemList data={data} itemLength={itemLength} />
+      {data ? (
+        <ItemList data={data} />
       ) : (
         <div className="grid h-48 place-items-center">
           <h2>You have reached maximum quota for ExerciseDB API</h2>
